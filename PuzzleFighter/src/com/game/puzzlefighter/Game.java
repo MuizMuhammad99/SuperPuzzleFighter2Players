@@ -161,11 +161,10 @@ public abstract class Game implements Runnable {
 		double tickPerTime = 1000000000 / fps;
 		long lastTime = System.nanoTime();
 		long lastUpdateTime = System.nanoTime();
-		long now = 0;
+		long now;
 		long timer = 0;
-		int ticks = 0;
 
-		int updates = 0;
+		int updates;
 		int maxUpdates = 5;
 
 		// game loop
@@ -191,7 +190,6 @@ public abstract class Game implements Runnable {
 			preRender();
 			render();
 			show();
-			ticks++;
 			lastTime = now;
 
 			long timeTake = System.nanoTime() - now;
@@ -203,7 +201,6 @@ public abstract class Game implements Runnable {
 				}
 
 			if (timer >= 1000000000) {
-				ticks = 0;
 				timer = 0;
 			}
 

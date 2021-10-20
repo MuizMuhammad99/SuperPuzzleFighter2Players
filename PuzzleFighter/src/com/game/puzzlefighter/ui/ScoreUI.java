@@ -75,7 +75,7 @@ public class ScoreUI {
 	private void drawScore(Graphics2D g2) {
 		BufferedImage image;
 		int x = scoreX;
-		int width = 0, height = 0;
+		int width, height;
 
 		for (int i = 0; i < scoreDigits.length; i++) {
 			image = getDigitImage(scoreDigits[i]);

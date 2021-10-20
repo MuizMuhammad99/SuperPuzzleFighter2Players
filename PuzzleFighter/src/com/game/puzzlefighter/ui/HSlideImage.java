@@ -19,7 +19,7 @@ public class HSlideImage extends TextAnimation{
 	private final float slidingSpeed;
 	private boolean slideDone;
 	private boolean atCenter;
-	private float atCenterPause = 1f;
+	private float atCenterPause;
 	private float atCenterPauseCount;
 	
 	/**

@@ -146,7 +146,7 @@ public class Gem {
 	public static Gem randomGem() {
 		Random random = new Random();
 		int color = random.nextInt(4) + 1;
-		int type = 0;
+		int type;
 		int chance = random.nextInt(100) + 1;
 
 		//chance for the gem to spawn of certain type
