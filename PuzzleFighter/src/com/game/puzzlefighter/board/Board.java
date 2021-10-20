@@ -3,6 +3,7 @@ package com.game.puzzlefighter.board;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import com.game.gfx.AssetManager;
 import com.game.puzzlefighter.Game;
@@ -249,8 +250,8 @@ public class Board {
 
 		for (int i = 0; i < ROWS; i++)
 			for (int j = 0; j < COLS; j++)
-				if (getGem(i, j) != null && getGem(i, j).isBlockGem()) {
-					getGem(i, j).setBlock(null);
+				if (getGem(i, j) != null && Objects.requireNonNull(getGem(i, j)).isBlockGem()) {
+					Objects.requireNonNull(getGem(i, j)).setBlock(null);
 				}
 	}
 
@@ -260,21 +261,21 @@ public class Board {
 	private void formBlocks() {
 		for (int i = 0; i < ROWS; i++)
 			for (int j = 0; j < COLS; j++) {
-				if (!cells[i][j].isEmpty() && !getGem(i, j).isBlockGem() && getGem(i, j).isNormalGem()) {
+				if (!cells[i][j].isEmpty() && !Objects.requireNonNull(getGem(i, j)).isBlockGem() && Objects.requireNonNull(getGem(i, j)).isNormalGem()) {
 
 					// if 2 x 2 block has any empty cell,then no block is formed
 					if (getGem(i, j + 1) == null || getGem(i + 1, j) == null || getGem(i + 1, j + 1) == null)
 						continue;
 
 					// if 2x2 block gems do not have same color,then block is not formed
-					int gemColor = getGem(i, j).getGemColor();
-					if (getGem(i, j + 1).getGemColor() != gemColor || getGem(i + 1, j).getGemColor() != gemColor
-							|| getGem(i + 1, j + 1).getGemColor() != gemColor)
+					int gemColor = Objects.requireNonNull(getGem(i, j)).getGemColor();
+					if (Objects.requireNonNull(getGem(i, j + 1)).getGemColor() != gemColor || Objects.requireNonNull(getGem(i + 1, j)).getGemColor() != gemColor
+							|| Objects.requireNonNull(getGem(i + 1, j + 1)).getGemColor() != gemColor)
 						continue;
 
 					// if 2x2 blocks gems are already part of block,the block is not formed
-					if (getGem(i, j).getType() != Gem.NORMAL || getGem(i, j + 1).getType() != Gem.NORMAL
-							|| getGem(i + 1, j).isBlockGem() || getGem(i + 1, j + 1).isBlockGem())
+					if (Objects.requireNonNull(getGem(i, j)).getType() != Gem.NORMAL || Objects.requireNonNull(getGem(i, j + 1)).getType() != Gem.NORMAL
+							|| Objects.requireNonNull(getGem(i + 1, j)).isBlockGem() || Objects.requireNonNull(getGem(i + 1, j + 1)).isBlockGem())
 						continue;
 
 					// end row,col of block
@@ -285,9 +286,9 @@ public class Board {
 					// vertically
 					for (int row = endRow + 1; row < ROWS; row++)
 						if (getGem(row, j) != null && getGem(row, j + 1) != null
-								&& getGem(row, j).getGemColor() == gemColor
-								&& getGem(row, j + 1).getGemColor() == gemColor && !getGem(row, j).isBlockGem()
-								&& !getGem(row, j + 1).isBlockGem())
+								&& Objects.requireNonNull(getGem(row, j)).getGemColor() == gemColor
+								&& Objects.requireNonNull(getGem(row, j + 1)).getGemColor() == gemColor && !Objects.requireNonNull(getGem(row, j)).isBlockGem()
+								&& !Objects.requireNonNull(getGem(row, j + 1)).isBlockGem())
 							endRow = row;
 						else
 							break;
@@ -297,8 +298,8 @@ public class Board {
 						boolean canGrow = true;
 
 						for (int row = i; row <= endRow; row++)
-							if (getGem(row, col) == null || getGem(row, col).getGemColor() != gemColor
-									|| getGem(row, col).isBlockGem()) {
+							if (getGem(row, col) == null || Objects.requireNonNull(getGem(row, col)).getGemColor() != gemColor
+									|| Objects.requireNonNull(getGem(row, col)).isBlockGem()) {
 								canGrow = false;
 								break;
 							}
@@ -317,27 +318,27 @@ public class Board {
 								System.out.println(row + "--" + col);
 							else {
 								Gem gem = getGem(row, col);
-								gem.setBlockFrames("center" + gem.getGemColor());
+								Objects.requireNonNull(gem).setBlockFrames("center" + gem.getGemColor());
 								blockGems.add(gem);
 							}
 
 					// change texture of block gems
 					// corner
-					getGem(i, j).setBlockFrames("topLeftCorner" + getGem(i, j).getGemColor());
-					getGem(i, endCol).setBlockFrames("topRightCorner" + getGem(i, endCol).getGemColor());
-					getGem(endRow, j).setBlockFrames("bottomLeftCorner" + getGem(endRow, j).getGemColor());
-					getGem(endRow, endCol).setBlockFrames("bottomRightCorner" + getGem(endRow, endCol).getGemColor());
+					Objects.requireNonNull(getGem(i, j)).setBlockFrames("topLeftCorner" + Objects.requireNonNull(getGem(i, j)).getGemColor());
+					Objects.requireNonNull(getGem(i, endCol)).setBlockFrames("topRightCorner" + Objects.requireNonNull(getGem(i, endCol)).getGemColor());
+					Objects.requireNonNull(getGem(endRow, j)).setBlockFrames("bottomLeftCorner" + Objects.requireNonNull(getGem(endRow, j)).getGemColor());
+					Objects.requireNonNull(getGem(endRow, endCol)).setBlockFrames("bottomRightCorner" + Objects.requireNonNull(getGem(endRow, endCol)).getGemColor());
 
 					// edges
 					// left & right edges
 					for (int row = i + 1; row < endRow; row++) {
-						getGem(row, j).setBlockFrames("leftEdge" + getGem(row, j).getGemColor());
-						getGem(row, endCol).setBlockFrames("rightEdge" + getGem(row, endCol).getGemColor());
+						Objects.requireNonNull(getGem(row, j)).setBlockFrames("leftEdge" + Objects.requireNonNull(getGem(row, j)).getGemColor());
+						Objects.requireNonNull(getGem(row, endCol)).setBlockFrames("rightEdge" + Objects.requireNonNull(getGem(row, endCol)).getGemColor());
 					}
 					// top and bottom edges
 					for (int col = j + 1; col < endCol; col++) {
-						getGem(i, col).setBlockFrames("topEdge" + getGem(i, col).getGemColor());
-						getGem(endRow, col).setBlockFrames("bottomEdge" + getGem(endRow, col).getGemColor());
+						Objects.requireNonNull(getGem(i, col)).setBlockFrames("topEdge" + Objects.requireNonNull(getGem(i, col)).getGemColor());
+						Objects.requireNonNull(getGem(endRow, col)).setBlockFrames("bottomEdge" + Objects.requireNonNull(getGem(endRow, col)).getGemColor());
 					}
 
 					// create a block
@@ -377,12 +378,12 @@ public class Board {
 			for (int j = 0; j < COLS; j++)
 				if (getGem(i, j) != null)
 					// if crash gem, then destroy,similar gems
-					if (getGem(i, j).getType() == Gem.CRASH)
-						destroyGems(getGem(i, j), i, j);
+					if (Objects.requireNonNull(getGem(i, j)).getType() == Gem.CRASH)
+						destroyGems(Objects.requireNonNull(getGem(i, j)), i, j);
 
 					// if diamond gem,then destroy all same colored gems
-					else if (getGem(i, j).getType() == Gem.DIAMOND) {
-						getGem(i, j).destroy();
+					else if (Objects.requireNonNull(getGem(i, j)).getType() == Gem.DIAMOND) {
+						Objects.requireNonNull(getGem(i, j)).destroy();
 						destroyingGems.add(getGem(i, j));
 						cells[i][j].setGem(null);
 
@@ -402,7 +403,7 @@ public class Board {
 	private void destroySameColorGems(int gemColor) {
 		for (int i = 0; i < ROWS; i++)
 			for (int j = 0; j < COLS; j++)
-				if (getGem(i, j) != null && getGem(i, j).getGemColor() == gemColor) {
+				if (getGem(i, j) != null && Objects.requireNonNull(getGem(i, j)).getGemColor() == gemColor) {
 					Gem gem = cells[i][j].getGem();
 					gem.destroy();
 
@@ -510,8 +511,8 @@ public class Board {
 	private void tickCounterGems() {
 		for (int i = 0; i < ROWS; i++)
 			for (int j = 0; j < COLS; j++)
-				if (getGem(i, j) != null && getGem(i, j).isCounterGem())
-					getGem(i, j).tick();
+				if (getGem(i, j) != null && Objects.requireNonNull(getGem(i, j)).isCounterGem())
+					Objects.requireNonNull(getGem(i, j)).tick();
 	}
 
 	/**

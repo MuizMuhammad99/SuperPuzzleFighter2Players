@@ -169,7 +169,7 @@ public abstract class Game implements Runnable {
 
 		// game loop
 		boolean running = true;
-		while (running) {
+		while (true) {
 			now = System.nanoTime();
 			timer += (now - lastTime);
 
