@@ -38,16 +38,8 @@ public class AudioFile {
 		}
 		
 	}
-	
-	
-	/**
-	 * 
-	 * @return true if audio file is played
-	 */
-	public boolean isPlayed() {
-		return clip.getMicrosecondPosition() == clip.getMicrosecondLength();
-	}
-	
+
+
 	/**
 	 * plays the audio file
 	 */

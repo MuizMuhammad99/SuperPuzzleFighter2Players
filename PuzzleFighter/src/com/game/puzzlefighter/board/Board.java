@@ -340,7 +340,7 @@ public class Board {
 					}
 
 					// create a block
-					Block block = new Block(blockGems, i, j, endRow, endCol);
+					Block block = new Block(blockGems);
 					blocks.add(block);
 				}
 
@@ -595,10 +595,6 @@ public class Board {
 
 	public int getX() {
 		return x;
-	}
-
-	public int getY() {
-		return y;
 	}
 
 	public int getScore() {

@@ -187,20 +187,8 @@ public class Gem {
 		return type == COUNTER;
 	}
 
-	public boolean isCrashGem() {
-		return type == CRASH;
-	}
-
-	public boolean isDiamondGem() {
-		return type == DIAMOND;
-	}
-
 	public void fastSpeed() {
 		speed = fastSpeed;
-	}
-
-	public void normalSpeed() {
-		speed = normalSpeed;
 	}
 
 	public boolean isFastSpeed() {
@@ -248,17 +236,9 @@ public class Gem {
 		this.block = block;
 	}
 
-	public Block getBlock() {
-		return block;
-	}
-
 	public void destroy() {
 		state = DESTROY;
 
-	}
-	
-	public BufferedImage getGemImage() {
-		return gemImage;
 	}
 	
 	public BufferedImage getImage() {

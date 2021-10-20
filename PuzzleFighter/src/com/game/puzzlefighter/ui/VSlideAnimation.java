@@ -78,17 +78,9 @@ public class VSlideAnimation extends TextAnimation{
 	public boolean isSlideDone() {
 		return slideDone;
 	}
-	
-	public boolean isAtCenter() {
-		return atCenter;
-	}
-	
+
 	public void setX(int x) {
 		this.x = x;
-	}
-	
-	public int getHeight() {
-		return height;
 	}
 	
 }

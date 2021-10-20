@@ -33,8 +33,4 @@ public class SpriteSheet {
 		return sheet.getSubimage(x, y, width, height);
 	}
 
-	public BufferedImage getImage() {
-		return sheet;
-	}
-
 }

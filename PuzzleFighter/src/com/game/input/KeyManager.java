@@ -20,7 +20,7 @@ public class KeyManager extends KeyAdapter {
 	}
 
 	// update just pressed keys
-	public void update(float delta) {
+	public void update() {
 		for (int i = 0; i < keys.length; i++) {
 			if (!keysPressable[i] && !keys[i]) {
 				keysPressable[i] = true;
@@ -33,15 +33,6 @@ public class KeyManager extends KeyAdapter {
 			}
 		}
 
-	}
-
-	/**
-	 * 
-	 * @param keyCode key code
-	 * @return true if the key is pressed
-	 */
-	public boolean isKeyPressed(int keyCode) {
-		return keys[keyCode];
 	}
 
 	/**

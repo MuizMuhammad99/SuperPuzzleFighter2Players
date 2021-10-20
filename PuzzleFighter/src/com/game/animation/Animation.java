@@ -92,15 +92,6 @@ public class Animation {
 		timer = 0;
 	}
 
-	public void setIndex(int i) {
-		index = i;
-
-	}
-	
-	public void setFrameDelay(float frameDelay) {
-		this.frameDelay = frameDelay;
-	}
-
 	public int getIndex() {
 		return index;
 	}
@@ -129,10 +120,6 @@ public class Animation {
 	public void setReverseAble(boolean reverseAble) {
 		this.reverseAble = reverseAble;
 		
-	}
-
-	public float getFrameDelay() {
-		return frameDelay;
 	}
 
 	public void setFrames(String frameKey) {

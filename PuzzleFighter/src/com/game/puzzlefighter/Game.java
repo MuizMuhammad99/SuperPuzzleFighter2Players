@@ -1,7 +1,6 @@
 package com.game.puzzlefighter;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.event.ComponentEvent;
@@ -30,10 +29,8 @@ public abstract class Game implements Runnable {
 	private VolatileImage vImage;
 	protected Thread gameThread;
 	protected int fps;
-	private int framesThisSecond;
 	private boolean running = true;
 
-	public static final Font DEFAULT_FONT = new Font("Arial", Font.PLAIN, 12);
 	public static final KeyManager keyManager = new KeyManager();
 	public static final SoundPlayer soundPlayer = new SoundPlayer();
 
@@ -159,18 +156,6 @@ public abstract class Game implements Runnable {
 		gameThread.start();
 	}
 
-	/**
-	 * stop game thread
-	 */
-	public synchronized void stop() {
-		try {
-			gameThread.join();
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-		}
-	}
-
 	@Override
 	public void run() {
 		create();
@@ -192,7 +177,7 @@ public abstract class Game implements Runnable {
 			updates = 0;
 			while (now - lastUpdateTime >= tickPerTime) {
 				float delta = (now - lastUpdateTime) / 1000000000.0f;
-				keyManager.update(delta);
+				keyManager.update();
 				delta = delta <= 0.016f ? delta : 0.016f;
 				update(delta);
 				lastUpdateTime += tickPerTime;
@@ -218,32 +203,12 @@ public abstract class Game implements Runnable {
 				}
 
 			if (timer >= 1000000000) {
-				framesThisSecond = ticks;
 				ticks = 0;
 				timer = 0;
 			}
 
 		}
 
-	}
-
-	/**
-	 * renders fps count of game on top right corner
-	 */
-	protected void renderfpsCount(Color color) {
-		graphics.setFont(DEFAULT_FONT);
-		graphics.setColor(color);
-		graphics.drawString("FRAME PER SECOND : " + framesThisSecond,
-				gameConfigurations.isScaling() ? gameConfigurations.getGameWidth() - 160 : getWidth() - 160,
-				10 + graphics.getFont().getSize());
-	}
-
-	/**
-	 * renders fps count of game on x,y
-	 */
-	protected void renderfpsCount(Color color, int x, int y) {
-		graphics.setColor(color);
-		graphics.drawString("FRAME PER SECOND : " + framesThisSecond, x, y);
 	}
 
 	/**
@@ -257,10 +222,6 @@ public abstract class Game implements Runnable {
 	}
 	
 	//getters and setters
-	
-	protected void setFPS(int fps) {
-		this.fps = fps;
-	}
 
 	public static int getWidth() {
 		return mainFrame.getCanvas().getWidth();

@@ -35,10 +35,6 @@ public class GameConfigurations {
 		return fullScreen;
 	}
 
-	public void setFullScreen(boolean fullScreen) {
-		this.fullScreen = fullScreen;
-	}
-
 	public String getTitle() {
 		return title;
 	}
@@ -49,10 +45,6 @@ public class GameConfigurations {
 
 	public int getFps() {
 		return fps;
-	}
-	
-	public void setFps(int fps) {
-		this.fps = fps;
 	}
 
 	public boolean isScaling() {
