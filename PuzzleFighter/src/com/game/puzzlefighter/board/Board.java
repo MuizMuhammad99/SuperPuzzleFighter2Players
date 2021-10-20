@@ -23,23 +23,24 @@ public class Board {
 	public static final int ROWS = 12;
 	public static final int COLS = 6;
 
-	private int x, y;
+	private final int x;
+	private final int y;
 	private int state = INPUT_STATE;
-	public Cell[][] cells;
+	public final Cell[][] cells;
 
-	private GemPair fallingGemPair;
+	private final GemPair fallingGemPair;
 	private int rightKey, leftKey, rotateRightKey, rotateLeftKey, fastPlaceKey;
-	private ArrayList<Block> blocks;
-	private ArrayList<Gem> destroyingGems;
-	private ArrayList<Gem> fallingGems;
-	private ArrayList<Gem> fallingCounterGems;
+	private final ArrayList<Block> blocks;
+	private final ArrayList<Gem> destroyingGems;
+	private final ArrayList<Gem> fallingGems;
+	private final ArrayList<Gem> fallingCounterGems;
 
-	private BoardObserver observer;
-	private BufferedImage boardHUD;
+	private final BoardObserver observer;
+	private final BufferedImage boardHUD;
 	private int score;
 	private boolean boardFinished;
 
-	private SoundPlayer soundPlayer;
+	private final SoundPlayer soundPlayer;
 
 	/**
 	 * Constructor

@@ -12,10 +12,11 @@ import com.game.puzzlefighter.Game;
  **/
 public class HSlideImage extends TextAnimation{
 
-	private BufferedImage image;
-	private int width,height;
+	private final BufferedImage image;
+	private final int width;
+	private final int height;
 
-	private float slidingSpeed;
+	private final float slidingSpeed;
 	private boolean slideDone;
 	private boolean atCenter;
 	private float atCenterPause = 1f;

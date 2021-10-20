@@ -35,7 +35,7 @@ public class Gem {
 	public static final int WIDTH = 40;
 	public static final int HEIGHT = 40;
 
-	private int gemColor;
+	private final int gemColor;
 	private int type;
 	private int state = MOVING;
 	private Block block;
@@ -43,8 +43,8 @@ public class Gem {
 	private int countTimer = 5;
 
 	private float x, y;
-	private float normalSpeed = 1f;
-	private float fastSpeed = 8f;
+	private final float normalSpeed = 1f;
+	private final float fastSpeed = 8f;
 	private float speed = normalSpeed;
 
 	private Animation destroyAnimation, diamondAnimation, counterAnimation, crashAnimation, blockAnimation;

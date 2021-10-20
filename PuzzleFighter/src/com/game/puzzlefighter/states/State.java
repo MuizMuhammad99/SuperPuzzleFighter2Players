@@ -10,7 +10,7 @@ import com.game.puzzlefighter.PuzzleFighter;
  */
 public abstract class State {
 
-	protected PuzzleFighter game;
+	protected final PuzzleFighter game;
 	
 	public State(PuzzleFighter game) {
 		this.game = game;

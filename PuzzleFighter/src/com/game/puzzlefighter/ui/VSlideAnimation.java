@@ -11,10 +11,11 @@ import com.game.puzzlefighter.Game;
  */
 public class VSlideAnimation extends TextAnimation{
 	
-	private Animation animation;
-	private float slidingSpeed;
-	private float atCenterPause;
-	private int width,height;
+	private final Animation animation;
+	private final float slidingSpeed;
+	private final float atCenterPause;
+	private final int width;
+	private final int height;
 	
 	private boolean slideDone;
 	private boolean atCenter;

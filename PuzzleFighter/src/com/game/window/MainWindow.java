@@ -12,8 +12,8 @@ import javax.swing.JFrame;
  */
 public class MainWindow {
 
-	private JFrame frame;
-	private Canvas canvas;
+	private final JFrame frame;
+	private final Canvas canvas;
 
 	/**
 	 * Constructor

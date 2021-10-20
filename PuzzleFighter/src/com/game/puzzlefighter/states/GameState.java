@@ -29,20 +29,26 @@ public class GameState extends State implements BoardObserver {
 	public static final int PLAY_STATE = 1;
 	public static final int END_STATE = 2;
 
-	private BufferedImage background;
-	private BufferedImage logo;
-	private Board board, board2;
+	private final BufferedImage background;
+	private final BufferedImage logo;
+	private final Board board;
+	private final Board board2;
 
-	private NextUI next1, next2;
-	private ScoreUI score1, score2;
-	private Character player1, player2;
+	private final NextUI next1;
+	private final NextUI next2;
+	private final ScoreUI score1;
+	private final ScoreUI score2;
+	private final Character player1;
+	private final Character player2;
 
 	private int state = PLAY_STATE;
 	private boolean gameStarted;
 
-	private HSlideImage readyImage, fightImage;
-	private VSlideAnimation winAnimation, loseAnimation;
-	private KOAnimation koAnimation;
+	private final HSlideImage readyImage;
+	private final HSlideImage fightImage;
+	private final VSlideAnimation winAnimation;
+	private final VSlideAnimation loseAnimation;
+	private final KOAnimation koAnimation;
 
 	private boolean gameEnded;
 	private float delayTimer;

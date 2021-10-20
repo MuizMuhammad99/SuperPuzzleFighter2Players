@@ -15,12 +15,14 @@ import com.game.utils.FontUtils;
  */
 public class MenuState extends State {
 
-	private int titleX, titleY;
-	private Animation titleAnimation;
-	private int width, height;
-	private Color backgroundColor = Color.PINK;
+	private final int titleX;
+	private final int titleY;
+	private final Animation titleAnimation;
+	private final int width;
+	private final int height;
+	private final Color backgroundColor = Color.PINK;
 
-	private Font font = new Font("Monospaced", Font.BOLD, 20);
+	private final Font font = new Font("Monospaced", Font.BOLD, 20);
 	private float delayCount;
 	private boolean blink = true;
 

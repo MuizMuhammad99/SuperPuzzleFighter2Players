@@ -14,11 +14,14 @@ import com.game.puzzlefighter.board.GemPair;
 public class NextUI {
 
 	
-	private int x, y;
-	private GemPair gemPair;
-	private int gemX, gemY;
-	private BufferedImage nextUIImage;
-	private int width,height;
+	private final int x;
+    private final int y;
+	private final GemPair gemPair;
+	private final int gemX;
+    private final int gemY;
+	private final BufferedImage nextUIImage;
+	private final int width;
+    private final int height;
 	private BufferedImage nextGemImage, nextMiddleImage;
 
 	/**

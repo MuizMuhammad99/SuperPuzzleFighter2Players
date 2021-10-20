@@ -11,7 +11,7 @@ import com.game.utils.ImageLoader;
  */
 public class SpriteSheet {
 
-	private BufferedImage sheet;
+	private final BufferedImage sheet;
 
 	/**
 	 * Constructor

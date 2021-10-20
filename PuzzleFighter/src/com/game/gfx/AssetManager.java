@@ -16,9 +16,9 @@ import com.game.utils.ImageLoader;
  */
 public class AssetManager {
 
-	private static HashMap<String, AudioFile> allSounds = new HashMap<String, AudioFile>();
-	private static HashMap<String, BufferedImage> allImages = new HashMap<String, BufferedImage>();
-	private static HashMap<String, BufferedImage[]> allAnimations = new HashMap<String, BufferedImage[]>();
+	private static final HashMap<String, AudioFile> allSounds = new HashMap<String, AudioFile>();
+	private static final HashMap<String, BufferedImage> allImages = new HashMap<String, BufferedImage>();
+	private static final HashMap<String, BufferedImage[]> allAnimations = new HashMap<String, BufferedImage[]>();
 
 	/**
 	 * loads the resources

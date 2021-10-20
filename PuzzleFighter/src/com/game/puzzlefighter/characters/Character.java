@@ -11,12 +11,13 @@ import com.game.sfx.SoundPlayer;
  */
 public abstract class Character {
 
-	protected int x, y;
-	protected String name;
-	protected int scale = 2;
+	protected final int x;
+    protected final int y;
+	protected final String name;
+	protected final int scale = 2;
 	protected Animation idle, advantage, disAdvantage, win, lose;
 	protected Animation currentAnimation;
-	protected SoundPlayer soundPlayer;
+	protected final SoundPlayer soundPlayer;
 
 	/**
 	 * Constructor

@@ -8,7 +8,8 @@ import java.awt.Graphics2D;
  */
 public class Cell {
 
-	private int row,col;
+	private final int row;
+    private final int col;
 	private Gem gem;
 	
 	/**

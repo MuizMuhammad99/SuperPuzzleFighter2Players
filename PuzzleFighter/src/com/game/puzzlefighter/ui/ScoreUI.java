@@ -11,13 +11,15 @@ import com.game.gfx.AssetManager;
  */
 public class ScoreUI {
 
-	private int x, y;
-	private int scoreX, scoreY;
-	private float scale = 2.5f;
-	private BufferedImage scoreUIImage;
-	private String scoreColor;
+	private final int x;
+	private final int y;
+	private final int scoreX;
+	private final int scoreY;
+	private final float scale = 2.5f;
+	private final BufferedImage scoreUIImage;
+	private final String scoreColor;
 
-	private int[] scoreDigits;
+	private final int[] scoreDigits;
 	private int score;
 
 	/**
