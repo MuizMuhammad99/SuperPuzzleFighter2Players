@@ -15,7 +15,7 @@ public class TransitionState extends State {
 	private State to;
 
 	private enum STATE {
-		IN, OUT;
+		IN, OUT
 	}
 
 	private STATE state;

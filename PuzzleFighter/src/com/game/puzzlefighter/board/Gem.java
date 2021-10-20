@@ -64,10 +64,8 @@ public class Gem {
 	}
 
 	public void update(float delta) {
-		switch (state) {
-		case MOVING:
+		if (state == MOVING) {
 			y += speed;
-			break;
 		}
 
 		// set image
