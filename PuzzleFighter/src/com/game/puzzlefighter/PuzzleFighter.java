@@ -8,52 +8,51 @@ import com.game.puzzlefighter.states.TransitionState;
 
 /**
  * Puzzle fighter game
- *
  */
 public class PuzzleFighter extends Game {
 
-	private MenuState menuState;
-	private GameState gameState;
-	private TransitionState transitionState;
-	private State state;
+    private MenuState menuState;
+    private GameState gameState;
+    private TransitionState transitionState;
+    private State state;
 
-	@Override
-	public void create() {
-		AssetManager.load();
+    @Override
+    public void create() {
+        AssetManager.load();
 
-		menuState = new MenuState(this);
-		transitionState = new TransitionState(this);
-		setState(menuState);
-	}
+        menuState = new MenuState(this);
+        transitionState = new TransitionState(this);
+        setState(menuState);
+    }
 
-	@Override
-	public void update(float delta) {
-		state.update(delta);
+    @Override
+    public void update(float delta) {
+        state.update(delta);
 
-	}
+    }
 
-	@Override
-	public void render() {
-		state.render(graphics);
-	}
+    @Override
+    public void render() {
+        state.render(graphics);
+    }
 
-	public void setState(State state) {
-		this.state = state;
+    public void setState(State state) {
+        this.state = state;
 
-	}
+    }
 
-	//transitions to menu state
-	public void transitionToMenu() {
-		Game.soundPlayer.playBackGroundMusic("menuBGM");
-		transitionState.start(gameState, menuState);
-		setState(transitionState);
-	}
-	
-	//transitions to gamestate
-	public void startGame() {
-		gameState = new GameState(this);
-		transitionState.start(menuState, gameState);
-		setState(transitionState);
-	}
+    //transitions to menu state
+    public void transitionToMenu() {
+        Game.soundPlayer.playBackGroundMusic("menuBGM");
+        transitionState.start(gameState, menuState);
+        setState(transitionState);
+    }
+
+    //transitions to gamestate
+    public void startGame() {
+        gameState = new GameState(this);
+        transitionState.start(menuState, gameState);
+        setState(transitionState);
+    }
 
 }

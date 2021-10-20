@@ -1,20 +1,18 @@
-
 package com.game.puzzlefighter;
 
 /**
  * Game launcher Class
- *
  */
 public final class Launcher {
 
-	/**
-	 * Initializes the game with configurations and runs it
-	 * 
-	 * @param config configurations of game
-	 * @param game   the game
-	 */
-	public static void launch(GameConfigurations config, Game game) {
-		game.initialize(config);
-		game.start();
-	}
+    /**
+     * Initializes the game with configurations and runs it
+     *
+     * @param config configurations of game
+     * @param game   the game
+     */
+    public static void launch(GameConfigurations config, Game game) {
+        game.initialize(config);
+        game.start();
+    }
 }

@@ -1,91 +1,89 @@
 package com.game.puzzlefighter.ui;
 
-import java.awt.Graphics2D;
-
 import com.game.animation.Animation;
 import com.game.gfx.AssetManager;
+
+import java.awt.*;
 
 /**
  * ko animation.
  * this animation is displayed at the center of screen and pauses for a little too before going away.
- *
  */
 public class KOAnimation extends TextAnimation {
 
-	public static final int IN = 1;
-	public static final int OUT = 2;
+    public static final int IN = 1;
+    public static final int OUT = 2;
 
-	private final Animation koAnimation;
-	private int state = 1;
-	private boolean isStarted;
-	private boolean isFinished;
+    private final Animation koAnimation;
+    private final int width;
+    private final int height;
+    private int state = 1;
+    private boolean isStarted;
+    private boolean isFinished;
+    private float pauseCounter;
 
-	private float pauseCounter;
+    /**
+     * Constructor
+     *
+     * @param x     x
+     * @param y     y
+     * @param scale scale
+     */
+    public KOAnimation(float x, float y, float scale) {
+        super(x, y);
 
-	private final int width;
-	private final int height;
+        koAnimation = new Animation(AssetManager.getFrames("ko"), 0.06f);
+        koAnimation.setReverseAble(true);
 
-	/**
-	 * Constructor
-	 * @param x	x
-	 * @param y	y
-	 * @param scale	scale
-	 */
-	public KOAnimation(float x, float y, float scale) {
-		super(x, y);
+        width = (int) (koAnimation.getCurrentFrame().getWidth() * scale);
+        height = (int) (koAnimation.getCurrentFrame().getHeight() * scale);
+    }
 
-		koAnimation = new Animation(AssetManager.getFrames("ko"), 0.06f);
-		koAnimation.setReverseAble(true);
+    @Override
+    public void update(float delta) {
+        if (isFinished || !isStarted)
+            return;
 
-		width = (int) (koAnimation.getCurrentFrame().getWidth() * scale);
-		height = (int) (koAnimation.getCurrentFrame().getHeight() * scale);
-	}
+        switch (state) {
+            case IN:
 
-	@Override
-	public void update(float delta) {
-		if (isFinished || !isStarted)
-			return;
+                //pause if animation is complete
+                if (koAnimation.isComplete()) {
+                    pauseCounter += delta;
+                    float pause = 2;
+                    if (pauseCounter >= pause) {
+                        pauseCounter = 0;
+                        state = OUT;
+                    }
+                } else
+                    koAnimation.update(delta);
 
-		switch (state) {
-		case IN:
+                break;
+            case OUT:
 
-			//pause if animation is complete
-			if (koAnimation.isComplete()) {
-				pauseCounter += delta;
-				float pause = 2;
-				if (pauseCounter >= pause) {
-					pauseCounter = 0;
-					state = OUT;
-				}
-			} else
-				koAnimation.update(delta);
+                //animation is finished if it returns to first index
+                if (koAnimation.getIndex() == 0) {
+                    isFinished = true;
+                }
+                koAnimation.update(delta);
+                break;
+        }
+    }
 
-			break;
-		case OUT:
-			
-			//animation is finished if it returns to first index
-			if (koAnimation.getIndex() == 0) {
-				isFinished = true;
-			}
-			koAnimation.update(delta);
-			break;
-		}
-	}
+    @Override
+    public void render(Graphics2D g2) {
+        if (isFinished || !isStarted)
+            return;
 
-	@Override
-	public void render(Graphics2D g2) {
-		if(isFinished || !isStarted)
-			return;
-		
-		g2.drawImage(koAnimation.getCurrentFrame(), (int) (x - width / 2), (int) (y - height / 2), width, height, null);
-	}
-	
-	public void start() {
-		isStarted = true;
-	}
-	
-	public boolean isFinished() {
-		return isFinished;
-	}
+        g2.drawImage(koAnimation.getCurrentFrame(), (int) (x - width / 2), (int) (y - height / 2), width, height, null);
+    }
+
+    public void start() {
+        isStarted = true;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
 
 }

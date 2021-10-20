@@ -1,6 +1,6 @@
 package com.game.puzzlefighter.board;
 
-import java.awt.Graphics2D;
+import java.awt.*;
 
 /**
  * A single cell on board
@@ -8,52 +8,53 @@ import java.awt.Graphics2D;
  */
 public class Cell {
 
-	private final int row;
+    private final int row;
     private final int col;
-	private Gem gem;
-	
-	/**
-	 * Constructor
-	 * @param row	row
-	 * @param col	column
-	 */
-	public Cell(int row,int col) {
-		this.row = row;
-		this.col = col;
-	}
+    private Gem gem;
 
-	public void update(float delta) {
-		if (isEmpty())
-			return;
-		gem.update(delta);
-	}
+    /**
+     * Constructor
+     *
+     * @param row row
+     * @param col column
+     */
+    public Cell(int row, int col) {
+        this.row = row;
+        this.col = col;
+    }
 
-	public void render(Graphics2D g2,int xOffset,int yOffset) {
-		if (isEmpty())
-			return;
-		
-		gem.render(g2,xOffset,yOffset);
-	}
-	
-	//getters
+    public void update(float delta) {
+        if (isEmpty())
+            return;
+        gem.update(delta);
+    }
 
-	public boolean isEmpty() {
-		return gem == null;
-	}
+    public void render(Graphics2D g2, int xOffset, int yOffset) {
+        if (isEmpty())
+            return;
 
-	public Gem getGem() {
-		return gem;
-	}
+        gem.render(g2, xOffset, yOffset);
+    }
 
-	public void setGem(Gem gem) {
-		this.gem = gem;
-	}
+    //getters
 
-	public int getRow() {
-		return row;
-	}
+    public boolean isEmpty() {
+        return gem == null;
+    }
 
-	public int getCol() {
-		return col;
-	}
+    public Gem getGem() {
+        return gem;
+    }
+
+    public void setGem(Gem gem) {
+        this.gem = gem;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
+    }
 }
