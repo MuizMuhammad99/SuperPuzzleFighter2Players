@@ -9,8 +9,7 @@ public class GameConfigurations {
 	private int gameWidth, gameHeight;
 	private boolean fullScreen;
     private String title;
-    private int fps = 60;
-    private boolean isScaling;
+	private boolean isScaling;
 	private boolean resizeable;
 	
 	//getters and setters
@@ -44,6 +43,7 @@ public class GameConfigurations {
 	}
 
 	public int getFps() {
+		int fps = 60;
 		return fps;
 	}
 

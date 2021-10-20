@@ -29,7 +29,6 @@ public abstract class Game implements Runnable {
 	private VolatileImage vImage;
 	protected Thread gameThread;
 	protected int fps;
-	private boolean running = true;
 
 	public static final KeyManager keyManager = new KeyManager();
 	public static final SoundPlayer soundPlayer = new SoundPlayer();
@@ -170,6 +169,7 @@ public abstract class Game implements Runnable {
 		int maxUpdates = 5;
 
 		// game loop
+		boolean running = true;
 		while (running) {
 			now = System.nanoTime();
 			timer += (now - lastTime);

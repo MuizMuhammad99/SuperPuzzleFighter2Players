@@ -21,10 +21,7 @@ public class TransitionState extends State {
 	private STATE state;
 
 	private float timer;
-	private float TRANS_TIME = 0.8f;
 
-	private float START_ALPHA = 0f;
-	private float END_ALPHA = 1f;
 	private float alpha = 0f;
 
 	public TransitionState(PuzzleFighter game) {
@@ -36,6 +33,7 @@ public class TransitionState extends State {
 
 		//update
 		timer += delta;
+		float TRANS_TIME = 0.8f;
 		if (timer > TRANS_TIME) {
 			timer = 0f;
 			if (state == STATE.IN) {
@@ -47,6 +45,8 @@ public class TransitionState extends State {
 		}
 
 		//update from
+		float START_ALPHA = 0f;
+		float END_ALPHA = 1f;
 		if (state == STATE.IN) {
 			alpha = apply(START_ALPHA, END_ALPHA, timer / TRANS_TIME);
 			from.update(delta);

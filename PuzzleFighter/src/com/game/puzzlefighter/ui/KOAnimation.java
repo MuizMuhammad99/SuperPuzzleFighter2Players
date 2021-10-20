@@ -20,7 +20,6 @@ public class KOAnimation extends TextAnimation {
 	private boolean isStarted;
 	private boolean isFinished;
 
-	private float pause = 2;
 	private float pauseCounter;
 
 	private int width, height;
@@ -52,6 +51,7 @@ public class KOAnimation extends TextAnimation {
 			//pause if animation is complete
 			if (koAnimation.isComplete()) {
 				pauseCounter += delta;
+				float pause = 2;
 				if (pauseCounter >= pause) {
 					pauseCounter = 0;
 					state = OUT;

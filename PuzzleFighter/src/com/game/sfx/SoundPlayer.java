@@ -10,13 +10,12 @@ public class SoundPlayer implements Runnable {
 
 	private AudioFile BGM;
 	private AudioFile soundEffect, soundEffect2;
-	private Thread thread;
 
 	private boolean playingBackGround;
 	private boolean playingSoundEffect, playingSoundEffect2;
 
 	public SoundPlayer() {
-		thread = new Thread(this);
+		Thread thread = new Thread(this);
 		thread.start();
 	}
 

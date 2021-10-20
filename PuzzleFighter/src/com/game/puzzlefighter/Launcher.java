@@ -13,7 +13,7 @@ public final class Launcher {
 	 * @param config configurations of game
 	 * @param game   the game
 	 */
-	public static final void launch(GameConfigurations config, Game game) {
+	public static void launch(GameConfigurations config, Game game) {
 		game.initialize(config);
 		game.start();
 	}

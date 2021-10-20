@@ -21,7 +21,6 @@ public class MenuState extends State {
 	private Color backgroundColor = Color.PINK;
 
 	private Font font = new Font("Monospaced", Font.BOLD, 20);
-	private float blinkDelay = 0.5f;
 	private float delayCount;
 	private boolean blink = true;
 
@@ -52,6 +51,7 @@ public class MenuState extends State {
 
 		// update blink timer
 		delayCount += delta;
+		float blinkDelay = 0.5f;
 		if (delayCount >= blinkDelay) {
 			delayCount = 0;
 			blink = !blink;
