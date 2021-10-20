@@ -43,8 +43,7 @@ public class GameConfigurations {
 	}
 
 	public int getFps() {
-		int fps = 60;
-		return fps;
+		return 60;
 	}
 
 	public boolean isScaling() {

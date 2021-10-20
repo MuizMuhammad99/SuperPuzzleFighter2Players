@@ -157,8 +157,7 @@ public class Gem {
 		else
 			type = DIAMOND;
 
-		Gem gem = new Gem(color, type);
-		return gem;
+		return new Gem(color, type);
 	}
 
 	/**
@@ -192,7 +191,7 @@ public class Gem {
 	}
 
 	public boolean isFastSpeed() {
-		return speed == fastSpeed;
+		return speed != fastSpeed;
 	}
 
 	public void setState(int state) {
@@ -229,7 +228,7 @@ public class Gem {
 	}
 
 	public boolean isFalling() {
-		return state == MOVING;
+		return state != MOVING;
 	}
 
 	public void setBlock(Block block) {

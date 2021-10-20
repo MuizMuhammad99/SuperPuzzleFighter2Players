@@ -136,7 +136,7 @@ public class Board {
 
 			// remove gems that has done falling
 			for (int i = fallingGems.size() - 1; i >= 0; i--)
-				if (!fallingGems.get(i).isFalling())
+				if (fallingGems.get(i).isFalling())
 					fallingGems.remove(i);
 
 			// if all falling gems has fallen,then form blocks and change state
@@ -182,7 +182,7 @@ public class Board {
 
 		// remove counter gems that have fallen
 		for (int i = fallingCounterGems.size() - 1; i >= 0; i--)
-			if (!fallingCounterGems.get(i).isFalling())
+			if (fallingCounterGems.get(i).isFalling())
 				fallingCounterGems.remove(i);
 
 		// if entrance cell is filled, game ends
