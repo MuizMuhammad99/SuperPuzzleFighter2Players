@@ -8,7 +8,7 @@ package com.game.puzzlefighter.board;
 public interface BoardObserver {
 
 	/**
-	 * Notifies the observer that the gems have been destoryed
+	 * Notifies the observer that the gems have been destroyed
 	 * 
 	 * @param board	the notifier board
 	 * @param numGems	num of gems

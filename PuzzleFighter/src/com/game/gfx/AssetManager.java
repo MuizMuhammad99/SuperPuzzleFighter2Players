@@ -486,7 +486,7 @@ public class AssetManager {
 		
 		allAnimations.put("lose", loseTextFrames);
 		
-		/*TTILE LOGO ANIMATION*/
+		/*TILE LOGO ANIMATION*/
 		SpriteSheet hudSheet = new SpriteSheet("/HUD.png");
 		
 		//title logo

@@ -15,7 +15,7 @@ public class Cell {
 	/**
 	 * Constructor
 	 * @param row	row
-	 * @param col	collumn
+	 * @param col	column
 	 */
 	public Cell(int row,int col) {
 		this.row = row;

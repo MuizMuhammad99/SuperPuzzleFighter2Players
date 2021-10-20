@@ -73,7 +73,7 @@ public class MenuState extends State {
 		g2.setColor(backgroundColor);
 		g2.fillRect(0, 0, Game.getGameWidth(), Game.getGameHeight());
 
-		// titile
+		// title
 		g2.drawImage(titleAnimation.getCurrentFrame(), titleX, titleY, width, height, null);
 
 		if (blink)

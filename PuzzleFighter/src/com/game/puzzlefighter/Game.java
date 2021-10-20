@@ -92,7 +92,7 @@ public abstract class Game implements Runnable {
 
 	/**
 	 * pre-renders the game i.e clears the screen so objects can be rendered on it.
-	 * It also creats and validates the vImage if it is invalid or null.
+	 * It also creates and validates the vImage if it is invalid or null.
 	 */
 	private void preRender() {
 		if (vImage == null) {
@@ -211,7 +211,7 @@ public abstract class Game implements Runnable {
 	/**
 	 * adds key adapter to the game
 	 * 
-	 * @param e key adapater
+	 * @param e key adapter
 	 */
 	public void addKeyAdapter(KeyAdapter e) {
 		mainFrame.getCanvas().addKeyListener(e);

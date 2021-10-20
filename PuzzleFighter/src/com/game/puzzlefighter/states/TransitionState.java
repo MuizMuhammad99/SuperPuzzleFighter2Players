@@ -8,7 +8,7 @@ import com.game.puzzlefighter.PuzzleFighter;
 
 /**
  * Transition state
- * it gives a visual transision between two states.
+ * it gives a visual transition between two states.
  */
 public class TransitionState extends State {
 	private State from;
@@ -91,7 +91,7 @@ public class TransitionState extends State {
 	}
 
 	/**
-	 * applys interpolation to the values
+	 * applies interpolation to the values
 	 */
 	private float apply(float a, float b, float p) {
 		return (b - a) * p + a;
